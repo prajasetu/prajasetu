@@ -219,9 +219,15 @@
           <h1 class="heading-5">Get in touch</h1>
           <div class="text-block-2">Our friendly team would love to hear from you.</div>
           <div class="w-form">
-            <form id="email-form" name="email-form" data-name="Email Form" method="get" data-wf-page-id="6615381c9a2fdb0f8a8cc94f" data-wf-element-id="dc02f051-302a-711e-60ec-f15e47331fef"><label for="name">full Name</label><input class="text-field-4 w-input" maxlength="256" name="name" data-name="Name" placeholder="Enter your name" type="text" id="name"><label for="email">Email Address</label><input class="text-field-3 w-input" maxlength="256" name="email" data-name="Email" placeholder="example@mail.com" type="email" id="email" required=""><label for="Phone">phone Number</label><input class="text-field-2 w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="+91 99999 99999" type="tel" id="Phone" required=""><label for="Message-2">Message</label><textarea placeholder="Leave us a message..." maxlength="5000" id="Message-2" name="Message" data-name="Message" class="textarea w-input"></textarea><label class="w-checkbox checkbox-field"><input type="checkbox" id="checkbox" name="checkbox" data-name="Checkbox" class="w-checkbox-input"><span class="checkbox-label w-form-label" for="checkbox">
+            <form action="https://api.web3forms.com/submit" id="email-form" name="email-form" data-name="Email Form" method="POST" data-wf-page-id="6615381c9a2fdb0f8a8cc94f" data-wf-element-id="dc02f051-302a-711e-60ec-f15e47331fef">
+              <input type="hidden" name="access_key" value="b48018de-1088-41d0-b01b-927f0501ea93">
+              <label for="name">full Name</label><input class="text-field-4 w-input" maxlength="256" name="name" data-name="Name" placeholder="Enter your name" type="text" id="name"><label for="email">Email Address</label><input class="text-field-3 w-input" maxlength="256" name="email" data-name="Email" placeholder="example@mail.com" type="email" id="email" required=""><label for="Phone">phone Number</label><input class="text-field-2 w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="+91 99999 99999" type="tel" id="Phone" required=""><label for="Message-2">Message</label><textarea placeholder="Leave us a message..." maxlength="5000" id="Message-2" name="Message" data-name="Message" class="textarea w-input"></textarea><label class="w-checkbox checkbox-field"><input type="checkbox" id="checkbox" name="checkbox" data-name="Checkbox" class="w-checkbox-input"><span class="checkbox-label w-form-label" for="checkbox">
                   <a href="#">You agree to our friendly privacy policy.</a>
-                </span></label><input type="submit" data-wait="Please wait..." class="bigbutton w-button" value="Submit"></form>
+                </span></label>
+                <!-- hCaptcha Spam Protection -->
+              <div class="h-captcha" data-captcha="true"></div>
+              <input type="submit" data-wait="Please wait..." class="bigbutton w-button" value="Submit"></form>
+            <script src="https://web3forms.com/client/script.js" async defer></script>
             <div class="w-form-done">
               <div>Thank you! Your submission has been received!</div>
             </div>
