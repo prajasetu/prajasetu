@@ -220,7 +220,7 @@
       </div>
     </div>
   </section>
-  <section class="section-7">
+ <section class="section-7">
     <div class="wrap1"><img src="images/Frame-2.webp" loading="lazy" width="1518" sizes="(max-width: 479px) 73vw, 80vw" alt="" srcset="images/Frame-2-p-500.png 500w, images/Frame-2-p-800.png 800w, images/Frame-2.webp 1440w" class="image-3"></div>
     <div class="w-layout-blockcontainer container-16 w-container">
         <div id="contact" class="w-layout-grid grid-3">
@@ -229,8 +229,8 @@
                 <h1 class="heading-5">Get in touch</h1>
                 <div class="text-block-2">Our friendly team would love to hear from you.</div>
                 <div class="w-form" id="myform">
-                    <form action="https://api.web3forms.com/submit" method="POST" id="email-form" name="email-form" data-name="Email Form" data-wf-page-id="6615381c9a2fdb0f8a8cc94f" data-wf-element-id="dc02f051-302a-711e-60ec-f15e47331fef">
-                         <input type="hidden" name="access_key" value="b48018de-1088-41d0-b01b-927f0501ea93">
+                    <form id="email-form" name="email-form" data-name="Email Form" data-wf-page-id="6615381c9a2fdb0f8a8cc94f" data-wf-element-id="dc02f051-302a-711e-60ec-f15e47331fef">
+                        <input type="hidden" name="access_key" value="b48018de-1088-41d0-b01b-927f0501ea93">
                         <label for="name">Full Name</label>
                         <input class="text-field-4 w-input" maxlength="256" name="name" data-name="Name" placeholder="Enter your name" type="text" id="name" required>
                         <label for="email">Email Address</label>
@@ -244,10 +244,10 @@
                         <input type="button" class="bigbutton w-button" value="Submit" onclick="submitForm()">
                     </form>
                     <script src="https://web3forms.com/client/script.js" async defer></script>
-                    <div class="w-form-done">
+                    <div class="w-form-done" style="display: none;">
                         <div>Thank you! Your submission has been received!</div>
                     </div>
-                    <div class="w-form-fail">
+                    <div class="w-form-fail" style="display: none;">
                         <div>Oops! Something went wrong while submitting the form.</div>
                     </div>
                 </div>
@@ -255,6 +255,28 @@
         </div>
     </div>
 </section>
+
+<script>
+    function submitForm() {
+        var form = document.getElementById("email-form");
+        var formData = new FormData(form);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://api.web3forms.com/submit", true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                document.querySelector(".w-form-done").style.display = "block";
+                form.reset();
+            } else {
+                document.querySelector(".w-form-fail").style.display = "block";
+            }
+        };
+        xhr.onerror = function () {
+            document.querySelector(".w-form-fail").style.display = "block";
+        };
+        xhr.send(formData);
+    }
+</script>
+
 
 <img src="images/Group-31_1.webp" loading="lazy" sizes="100vw" srcset="images/Group-31_1Group-31.webp 500w, images/Group-31_1-p-800.png 800w, images/Group-31_1-p-1080.png 1080w, images/Group-31_1.webp 1440w" alt="" class="image-2">
   <section class="footer-light">
