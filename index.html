@@ -8,12 +8,34 @@
   <meta property="og:title" content="Transforming Lives with Purpose | Prajasetu">
   <meta property="og:description" content="At Prajasetu, we're dedicated to meaningful impact through purpose-driven initiatives. Join us on our transformative journey to empower individuals and communities.">
   
-  <!-- Fonts - Same as original -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
+    :root {
+      --primary: #1a1a1a;
+      --accent: #e8a54b;
+      --accent-dark: #d4943a;
+      --accent-light: rgba(232, 165, 75, 0.1);
+      --white: #ffffff;
+      --off-white: #fafafa;
+      --gray-100: #f5f5f5;
+      --gray-200: #e8e8e8;
+      --gray-400: #999999;
+      --gray-600: #666666;
+      --gray-800: #333333;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.1);
+      --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+      --shadow-accent: 0 8px 25px rgba(232, 165, 75, 0.35);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -26,8 +48,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #ffffff;
-      color: #333333;
+      background: var(--white);
+      color: var(--gray-800);
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -35,7 +57,7 @@
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     /* Navigation */
@@ -45,19 +67,20 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 1rem 0;
-      transition: all 0.3s ease;
-      background: transparent;
+      padding: 1.25rem 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .navigation.scrolled {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+      padding: 0.875rem 0;
     }
 
     .navigation-wrap {
-      max-width: 1280px;
+      max-width: 1320px;
       margin: 0 auto;
       padding: 0 2rem;
       display: flex;
@@ -68,10 +91,11 @@
     .logo-link {
       display: flex;
       align-items: center;
+      text-decoration: none;
     }
 
     .logo-image {
-      width: 68px;
+      width: 65px;
       height: auto;
       transition: transform 0.3s ease;
     }
@@ -83,31 +107,33 @@
     .navigation-items {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 2.25rem;
     }
 
     .navigation-item {
-      color: #333;
+      color: var(--gray-800);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.3s ease;
       position: relative;
+      padding: 0.5rem 0;
     }
 
     .navigation-item::after {
       content: '';
       position: absolute;
-      bottom: -4px;
+      bottom: 0;
       left: 0;
       width: 0;
       height: 2px;
-      background: #e8a54b;
+      background: var(--accent);
       transition: width 0.3s ease;
+      border-radius: 2px;
     }
 
     .navigation-item:hover {
-      color: #e8a54b;
+      color: var(--accent);
     }
 
     .navigation-item:hover::after {
@@ -115,20 +141,20 @@
     }
 
     .nav-cta {
-      background: linear-gradient(135deg, #e8a54b 0%, #d4943a 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
       color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
+      padding: 0.75rem 1.75rem;
+      border-radius: 100px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(232, 165, 75, 0.3);
+      box-shadow: var(--shadow-accent);
     }
 
     .nav-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(232, 165, 75, 0.4);
+      box-shadow: 0 12px 30px rgba(232, 165, 75, 0.45);
     }
 
     .menu-button {
@@ -149,42 +175,57 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 8rem 2rem 4rem;
-      background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+      padding: 7rem 2rem 5rem;
+      background: linear-gradient(170deg, var(--off-white) 0%, var(--white) 40%, var(--gray-100) 100%);
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    .hero-bg {
       position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 80%;
-      height: 150%;
-      background: radial-gradient(ellipse, rgba(232, 165, 75, 0.08) 0%, transparent 70%);
+      inset: 0;
       pointer-events: none;
     }
 
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 70%;
+      height: 140%;
+      background: radial-gradient(ellipse, rgba(232, 165, 75, 0.12) 0%, transparent 60%);
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 50%;
+      height: 80%;
+      background: radial-gradient(ellipse, rgba(232, 165, 75, 0.06) 0%, transparent 60%);
+    }
+
     .hero-wrapper {
-      max-width: 1280px;
+      max-width: 1320px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 5rem;
       align-items: center;
       position: relative;
       z-index: 1;
     }
 
-    .hero-split {
-      animation: fadeInUp 0.8s ease-out;
+    .hero-content {
+      animation: slideUp 0.9s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    @keyframes fadeInUp {
+    @keyframes slideUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
       }
       to {
         opacity: 1;
@@ -192,96 +233,153 @@
       }
     }
 
-    .heading {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      color: #1a1a1a;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .text-span {
-      color: #e8a54b;
-      position: relative;
-    }
-
-    .paragraph {
-      font-size: 1.1rem;
-      color: #666;
-      margin-bottom: 2rem;
-      line-height: 1.8;
-    }
-
-    .button.primary {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: linear-gradient(135deg, #e8a54b 0%, #d4943a 100%);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
+      background: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
       font-weight: 600;
-      font-size: 1rem;
+      color: var(--gray-600);
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.75rem, 5.5vw, 4rem);
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .hero-title-accent {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      line-height: 1.85;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(232, 165, 75, 0.35);
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
     }
 
-    .button.primary:hover {
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: white;
+      box-shadow: var(--shadow-accent);
+    }
+
+    .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(232, 165, 75, 0.45);
+      box-shadow: 0 15px 40px rgba(232, 165, 75, 0.5);
     }
 
-    .hero-split:last-child {
-      animation: fadeInUp 0.8s ease-out 0.2s both;
+    .btn-secondary {
+      background: var(--white);
+      color: var(--gray-800);
+      border: 2px solid var(--gray-200);
     }
 
-    /* Hero Image with Frame Design */
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-image-section {
+      animation: slideUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.15s both;
+    }
+
     .hero-image-wrapper {
       position: relative;
     }
 
     .hero-image-frame {
       position: absolute;
-      top: -15px;
-      right: -15px;
-      bottom: 15px;
-      left: 15px;
-      border: 3px solid #e8a54b;
-      border-radius: 20px;
-      opacity: 0.4;
+      top: -18px;
+      right: -18px;
+      bottom: 18px;
+      left: 18px;
+      border: 3px solid var(--accent);
+      border-radius: var(--radius-xl);
+      opacity: 0.35;
       z-index: 0;
     }
 
     .hero-image {
       width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
       position: relative;
       z-index: 1;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
     }
 
     .hero-image:hover {
-      transform: scale(1.02);
+      transform: scale(1.015);
     }
 
     .hero-stats {
       position: absolute;
-      bottom: -25px;
+      bottom: -30px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
       overflow: hidden;
       z-index: 2;
+      border: 1px solid rgba(0,0,0,0.04);
     }
 
     .hero-stat {
-      padding: 1.25rem 2rem;
+      padding: 1.25rem 2.25rem;
       text-align: center;
-      border-right: 1px solid #eee;
+      border-right: 1px solid var(--gray-100);
     }
 
     .hero-stat:last-child {
@@ -291,63 +389,75 @@
     .hero-stat-number {
       font-family: 'Montserrat', sans-serif;
       font-size: 1.75rem;
-      font-weight: 700;
-      color: #e8a54b;
+      font-weight: 800;
+      color: var(--accent);
       line-height: 1;
     }
 
     .hero-stat-label {
-      font-size: 0.8rem;
-      color: #666;
-      margin-top: 0.25rem;
+      font-size: 0.75rem;
+      color: var(--gray-600);
+      margin-top: 0.35rem;
+      font-weight: 500;
     }
 
-    /* Clients/Partners Section - LARGER LOGOS */
-    .clients-section {
-      padding: 4rem 2rem;
-      background: #fff;
-      border-top: 1px solid #f0f0f0;
-      border-bottom: 1px solid #f0f0f0;
+    /* Partners Section */
+    .partners {
+      padding: 4.5rem 2rem;
+      background: var(--primary);
     }
 
-    .clients-wrapper {
+    .partners-container {
       max-width: 1200px;
       margin: 0 auto;
+    }
+
+    .partners-label {
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .partners-grid {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 4rem;
+      gap: 4.5rem;
       flex-wrap: wrap;
     }
 
-    .clients-image {
-      height: 80px;
+    .partners-image {
+      height: 75px;
       width: auto;
       object-fit: contain;
+      opacity: 0.7;
       transition: all 0.3s ease;
-      opacity: 0.85;
+      filter: brightness(0) invert(1);
     }
 
-    .clients-image:hover {
+    .partners-image:hover {
       opacity: 1;
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
-    /* For smaller logos, make them bigger */
-    .clients-image.small-logo {
-      height: 100px;
+    .partners-image.larger {
+      height: 90px;
     }
 
-    /* Divider Image */
+    /* Divider */
     .divider-image {
       width: 100%;
       display: block;
     }
 
-    /* About Section - FIXED IMAGES */
-    .about-overview {
-      padding: 6rem 2rem;
-      background: #fff;
+    /* About Section */
+    .about {
+      padding: 7rem 2rem;
+      background: var(--white);
     }
 
     .about-wrapper {
@@ -355,65 +465,87 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 5rem;
       align-items: center;
     }
 
     .about-content {
-      animation: fadeInUp 0.6s ease-out;
+      order: 1;
     }
 
-    .heading-3 {
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      color: #1a1a1a;
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 35px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+      color: var(--primary);
       margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
 
-    /* Fixed Image Wrapper - No Cutting */
-    .image-wrapper {
-      display: flex;
-      gap: 1.5rem;
+    .section-text {
+      font-size: 1.05rem;
+      color: var(--gray-600);
+      line-height: 1.9;
     }
 
-    .image-wrapper img {
+    .about-image-wrapper {
+      order: 2;
+      position: relative;
+    }
+
+    .about-image {
       width: 100%;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      object-fit: cover;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
     }
 
-    .image-wrapper img:hover {
-      transform: translateY(-5px);
+    .about-badge {
+      position: absolute;
+      top: 2rem;
+      right: -1.5rem;
+      background: var(--accent);
+      color: white;
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      text-align: center;
+      box-shadow: var(--shadow-accent);
     }
 
-    .image-wrapper .image-col {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+    .about-badge-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1;
     }
 
-    .image-wrapper .image-large {
-      flex: 1.2;
-    }
-
-    .image-wrapper .image-large img {
-      height: 100%;
-      min-height: 350px;
-      object-fit: cover;
-    }
-
-    .image-wrapper .image-col img {
-      height: calc(50% - 0.75rem);
-      min-height: 165px;
+    .about-badge-text {
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-top: 0.25rem;
     }
 
     /* Features Section */
     .features {
-      padding: 6rem 2rem;
-      background: #fafafa;
+      padding: 7rem 2rem;
+      background: var(--gray-100);
     }
 
     .features-container {
@@ -421,74 +553,87 @@
       margin: 0 auto;
     }
 
-    .heading-4 {
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      color: #1a1a1a;
+    .features-header {
       text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .text-span-2 {
-      color: #e8a54b;
+      margin-bottom: 4rem;
     }
 
     .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 1.75rem;
     }
 
     .feature-card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 16px;
+      background: var(--white);
+      padding: 2.25rem;
+      border-radius: var(--radius-lg);
       text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid #f0f0f0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
     }
 
     .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-      border-color: transparent;
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
     }
 
-    .feature-card img {
-      width: 70px;
-      height: 70px;
-      margin-bottom: 1.25rem;
+    .feature-card:hover::before {
+      transform: scaleX(1);
     }
 
-    .tittle {
+    .feature-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+
+    .feature-title {
       font-size: 1.1rem;
-      color: #1a1a1a;
+      color: var(--primary);
       margin-bottom: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .paragraph-small {
-      font-size: 0.95rem;
-      color: #666;
-      line-height: 1.7;
+    .feature-text {
+      font-size: 0.925rem;
+      color: var(--gray-600);
+      line-height: 1.75;
     }
 
     /* Video Section */
     .video-section {
-      padding: 4rem 2rem;
-      background: #fff;
+      padding: 5rem 2rem;
+      background: var(--white);
     }
 
     .video-container {
-      max-width: 940px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
     .video-wrapper {
       position: relative;
       padding-top: 56.25%;
-      border-radius: 16px;
+      border-radius: var(--radius-xl);
       overflow: hidden;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+      box-shadow: var(--shadow-lg);
     }
 
     .video-wrapper iframe {
@@ -502,8 +647,8 @@
 
     /* Projects Section */
     .projects {
-      padding: 6rem 2rem;
-      background: #fafafa;
+      padding: 7rem 2rem;
+      background: var(--gray-100);
     }
 
     .projects-container {
@@ -511,160 +656,195 @@
       margin: 0 auto;
     }
 
-    .big-heading {
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      color: #1a1a1a;
+    .projects-header {
       text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .text-span-3 {
-      color: #e8a54b;
+      margin-bottom: 4rem;
     }
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 1.75rem;
     }
 
     .project-card {
-      background: #fff;
+      background: var(--white);
       padding: 2rem;
-      border-radius: 16px;
-      transition: all 0.3s ease;
-      border: 1px solid #f0f0f0;
+      border-radius: var(--radius-lg);
+      transition: all 0.4s ease;
+      border: 1px solid var(--gray-200);
+      position: relative;
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
     }
 
     .project-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-      border-color: #e8a54b;
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
     }
 
-    .project-card img {
-      width: 80px;
-      height: 80px;
+    .project-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .project-icon {
+      width: 72px;
+      height: 72px;
       object-fit: contain;
       margin-bottom: 1.25rem;
     }
 
-    .tittle-1 {
+    .project-title {
       font-size: 1.15rem;
-      color: #1a1a1a;
+      color: var(--primary);
       margin-bottom: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
+    }
+
+    .project-text {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.75;
     }
 
     /* Testimonials Section */
     .testimonials {
-      padding: 6rem 2rem;
-      background: #1a1a1a;
-      color: #fff;
+      padding: 7rem 2rem;
+      background: var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(232, 165, 75, 0.08) 0%, transparent 50%);
+      pointer-events: none;
     }
 
     .testimonials-container {
       max-width: 1100px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
-    .heading-7 {
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
+    .testimonials-header {
       text-align: center;
-      margin-bottom: 0.5rem;
+      margin-bottom: 4rem;
     }
 
-    .paragraph-2 {
-      text-align: center;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 3rem;
+    .testimonials-header .section-title {
+      color: var(--white);
+    }
+
+    .testimonials-header .section-text {
+      color: rgba(255,255,255,0.65);
     }
 
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      gap: 1.75rem;
     }
 
     .testimonial-card {
-      background: rgba(255,255,255,0.05);
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      padding: 2.25rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.08);
       transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
     }
 
     .testimonial-card:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(232, 165, 75, 0.3);
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(232, 165, 75, 0.25);
+      transform: translateY(-5px);
     }
 
     .testimonial-quote-icon {
-      font-size: 3rem;
-      color: #e8a54b;
-      opacity: 0.5;
+      font-size: 3.5rem;
+      color: var(--accent);
+      opacity: 0.4;
       line-height: 1;
       margin-bottom: 1rem;
-      font-family: serif;
+      font-family: Georgia, serif;
     }
 
-    .testimonial-quote {
+    .testimonial-text {
       font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.85;
+      margin-bottom: 1.75rem;
       font-style: italic;
     }
 
-    .testimonial-info {
+    .testimonial-author {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
 
-    .testimonial-image {
-      width: 50px;
-      height: 50px;
+    .testimonial-avatar {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #e8a54b;
+      border: 3px solid var(--accent);
     }
 
-    .testimonial-author-name {
-      font-weight: 600;
+    .testimonial-name {
+      font-weight: 700;
       font-size: 0.95rem;
+      color: var(--white);
       margin-bottom: 0.2rem;
     }
 
-    .testimonial-author-role {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
+    .testimonial-role {
+      font-size: 0.825rem;
+      color: rgba(255,255,255,0.55);
     }
 
     /* RCOY Section */
-    .rcoy-section {
-      padding: 6rem 2rem;
-      background: #fff;
+    .rcoy {
+      padding: 7rem 2rem;
+      background: var(--white);
     }
 
     .rcoy-container {
       max-width: 1000px;
       margin: 0 auto;
-      text-align: center;
     }
 
-    .rcoy-container h1 {
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      color: #1a1a1a;
-      margin-bottom: 2rem;
+    .rcoy-header {
+      text-align: center;
+      margin-bottom: 3rem;
     }
 
     .rcoy-video {
       position: relative;
       padding-top: 56.25%;
-      border-radius: 16px;
+      border-radius: var(--radius-xl);
       overflow: hidden;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.15);
-      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2.5rem;
     }
 
     .rcoy-video iframe {
@@ -676,48 +856,51 @@
       border: none;
     }
 
-    .rcoy-container .paragraph {
+    .rcoy-text {
+      text-align: center;
       max-width: 800px;
       margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--gray-600);
+      line-height: 1.85;
     }
 
     /* Contact Section */
-    .contact-section {
-      padding: 6rem 2rem;
-      background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
-      position: relative;
+    .contact {
+      padding: 7rem 2rem;
+      background: linear-gradient(180deg, var(--gray-100) 0%, var(--white) 100%);
     }
 
     .contact-container {
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
+      grid-template-columns: 1fr 1.3fr;
       gap: 4rem;
       align-items: center;
     }
 
     .contact-image img {
       width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
     }
 
-    .form-wrapper {
-      background: #fff;
-      padding: 2.5rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    .contact-form-wrapper {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
     }
 
-    .heading-5 {
-      font-size: 1.75rem;
-      color: #1a1a1a;
+    .contact-title {
+      font-size: 1.875rem;
+      color: var(--primary);
       margin-bottom: 0.5rem;
     }
 
-    .text-block-2 {
-      color: #666;
+    .contact-subtitle {
+      color: var(--gray-600);
       margin-bottom: 2rem;
     }
 
@@ -725,74 +908,75 @@
       margin-bottom: 1.25rem;
     }
 
-    .form-group label {
+    .form-label {
       display: block;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #333;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray-800);
       margin-bottom: 0.5rem;
     }
 
     .form-input,
     .form-textarea {
       width: 100%;
-      padding: 0.875rem 1rem;
-      border: 2px solid #e8e8e8;
-      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-md);
       font-family: inherit;
-      font-size: 1rem;
+      font-size: 0.95rem;
       transition: all 0.3s ease;
-      background: #fafafa;
+      background: var(--off-white);
     }
 
     .form-input:focus,
     .form-textarea:focus {
       outline: none;
-      border-color: #e8a54b;
-      background: #fff;
-      box-shadow: 0 0 0 4px rgba(232, 165, 75, 0.1);
+      border-color: var(--accent);
+      background: var(--white);
+      box-shadow: 0 0 0 4px var(--accent-light);
     }
 
     .form-textarea {
-      min-height: 120px;
+      min-height: 130px;
       resize: vertical;
     }
 
     .form-submit {
       width: 100%;
-      padding: 1rem;
-      background: linear-gradient(135deg, #e8a54b 0%, #d4943a 100%);
+      padding: 1.1rem;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: var(--radius-md);
       font-family: inherit;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(232, 165, 75, 0.3);
+      box-shadow: var(--shadow-accent);
     }
 
     .form-submit:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(232, 165, 75, 0.4);
+      box-shadow: 0 12px 30px rgba(232, 165, 75, 0.45);
     }
 
     .form-success {
       display: none;
       padding: 1rem;
-      background: #d4edda;
-      color: #155724;
-      border-radius: 10px;
+      background: #dcfce7;
+      color: #166534;
+      border-radius: var(--radius-md);
       margin-top: 1rem;
       text-align: center;
+      font-weight: 500;
     }
 
     /* Footer */
     .footer {
-      background: #1a1a1a;
-      color: #fff;
-      padding: 4rem 2rem 2rem;
+      background: var(--primary);
+      color: var(--white);
+      padding: 5rem 2rem 2rem;
     }
 
     .footer-container {
@@ -803,20 +987,28 @@
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 3rem;
+      gap: 4rem;
+      margin-bottom: 4rem;
     }
 
     .footer-brand img {
-      width: 120px;
-      margin-bottom: 1rem;
+      width: 110px;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-desc {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      line-height: 1.75;
     }
 
     .footer-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .footer-links {
@@ -824,23 +1016,24 @@
     }
 
     .footer-links li {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.875rem;
     }
 
     .footer-links a {
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.6);
       text-decoration: none;
-      transition: color 0.3s ease;
-      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      font-size: 0.925rem;
     }
 
     .footer-links a:hover {
-      color: #e8a54b;
+      color: var(--accent);
+      padding-left: 4px;
     }
 
     .footer-divider {
       height: 1px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.08);
       margin-bottom: 2rem;
     }
 
@@ -849,12 +1042,12 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .footer-copyright {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.9rem;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.875rem;
     }
 
     .footer-social {
@@ -863,10 +1056,10 @@
     }
 
     .footer-social a {
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -874,7 +1067,7 @@
     }
 
     .footer-social a:hover {
-      background: #e8a54b;
+      background: var(--accent);
       transform: translateY(-3px);
     }
 
@@ -884,11 +1077,11 @@
       filter: brightness(0) invert(1);
     }
 
-    /* Scroll Animations */
+    /* Animations */
     .animate-on-scroll {
       opacity: 0;
-      transform: translateY(25px);
-      transition: all 0.6s ease-out;
+      transform: translateY(30px);
+      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .animate-on-scroll.visible {
@@ -902,7 +1095,15 @@
       .about-wrapper,
       .contact-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 3.5rem;
+      }
+
+      .about-content {
+        order: 2;
+      }
+
+      .about-image-wrapper {
+        order: 1;
       }
 
       .features-grid,
@@ -919,20 +1120,12 @@
         bottom: 0;
         left: 0;
         transform: none;
-        margin-top: 2rem;
+        margin-top: 2.5rem;
         justify-content: center;
       }
 
-      .clients-wrapper {
-        gap: 2.5rem;
-      }
-
-      .clients-image {
-        height: 60px;
-      }
-
-      .clients-image.small-logo {
-        height: 70px;
+      .partners-grid {
+        gap: 3rem;
       }
     }
 
@@ -951,19 +1144,9 @@
         grid-template-columns: 1fr;
       }
 
-      .image-wrapper {
-        flex-direction: column;
-      }
-
-      .image-wrapper .image-large img,
-      .image-wrapper .image-col img {
-        height: auto;
-        min-height: auto;
-      }
-
       .footer-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
       }
 
       .footer-bottom {
@@ -978,23 +1161,29 @@
 
       .hero-stat {
         border-right: none;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid var(--gray-100);
+        padding: 1rem 1.5rem;
       }
 
       .hero-stat:last-child {
         border-bottom: none;
       }
 
-      .clients-wrapper {
+      .partners-grid {
         gap: 2rem;
       }
 
-      .clients-image {
-        height: 50px;
+      .partners-image {
+        height: 55px;
       }
 
-      .clients-image.small-logo {
-        height: 60px;
+      .partners-image.larger {
+        height: 65px;
+      }
+
+      .about-badge {
+        right: 1rem;
+        top: 1rem;
       }
     }
   </style>
@@ -1021,13 +1210,24 @@
 
   <!-- Hero Section -->
   <section class="hero">
+    <div class="hero-bg"></div>
     <div class="hero-wrapper">
-      <div class="hero-split">
-        <h1 class="heading">Building <span class="text-span">Trust,<br></span>Securing connections</h1>
-        <p class="paragraph">The Bharat Electoral Literacy Fest is a lively and instructive celebration of democracy's most basic tenet: informed and empowered citizens.</p>
-        <a href="#contact" class="button primary">Join as Volunteer</a>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Bharat Electoral Literacy Fest 2026
+        </div>
+        <h1 class="hero-title">
+          Building <span class="hero-title-accent">Trust,</span><br>
+          Securing connections
+        </h1>
+        <p class="hero-subtitle">The Bharat Electoral Literacy Fest is a lively and instructive celebration of democracy's most basic tenet: informed and empowered citizens.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Join as Volunteer</a>
+          <a href="#about" class="btn btn-secondary">Learn More</a>
+        </div>
       </div>
-      <div class="hero-split">
+      <div class="hero-image-section">
         <div class="hero-image-wrapper">
           <div class="hero-image-frame"></div>
           <img src="images/front_page_image_1.webp" alt="Prajasetu Community" class="hero-image">
@@ -1050,35 +1250,37 @@
     </div>
   </section>
 
-  <!-- Clients/Partners Section - LARGER LOGOS -->
-  <section class="clients-section">
-    <div class="clients-wrapper">
-      <img src="images/iso-removebg-preview.png" alt="ISO Certified" class="clients-image">
-      <img src="images/Darpan-removebg-preview.png" alt="NGO Darpan" class="clients-image">
-      <img src="images/b32c18b244b31cce9eccac5fa7622a05-removebg-preview.png" alt="Partner Logo" class="clients-image small-logo">
-      <img src="images/Screenshot_2024-10-01_at_2.54.33_PM-removebg-preview.png" alt="Partner Logo" class="clients-image small-logo">
-      <img src="images/80g.webp" alt="80G Registered" class="clients-image small-logo">
+  <!-- Partners Section -->
+  <section class="partners">
+    <div class="partners-container">
+      <p class="partners-label">Recognized & Certified By</p>
+      <div class="partners-grid">
+        <img src="images/iso-removebg-preview.png" alt="ISO Certified" class="partners-image larger">
+        <img src="images/Darpan-removebg-preview.png" alt="NGO Darpan" class="partners-image larger">
+        <img src="images/b32c18b244b31cce9eccac5fa7622a05-removebg-preview.png" alt="Partner Logo" class="partners-image">
+        <img src="images/Screenshot_2024-10-01_at_2.54.33_PM-removebg-preview.png" alt="Partner Logo" class="partners-image">
+        <img src="images/80g.webp" alt="80G Registered" class="partners-image">
+      </div>
     </div>
   </section>
 
   <!-- Divider -->
   <img src="images/Frame-2.webp" alt="" class="divider-image">
 
-  <!-- About Section - FIXED IMAGES -->
-  <section class="about-overview">
+  <!-- About Section - ONLY ONE IMAGE -->
+  <section class="about" id="about">
     <div class="about-wrapper">
-      <div class="about-content animate-on-scroll">
-        <h2 class="heading-3">Bharat Electoral Literacy Fest</h2>
-        <p class="paragraph">The Bharat Electoral Literacy Fest is a lively and instructive celebration of democracy's most basic tenet: informed and empowered citizens. This multi-day event brings together professionals, researchers, policymakers, and the general public to delve deep into the heart of political processes and civic involvement.</p>
+      <div class="about-image-wrapper animate-on-scroll">
+        <img src="images/Rectangle-2.webp" alt="Bharat Electoral Literacy Fest" class="about-image">
+        <div class="about-badge">
+          <div class="about-badge-number">5+</div>
+          <div class="about-badge-text">Years of Impact</div>
+        </div>
       </div>
-      <div class="image-wrapper animate-on-scroll">
-        <div class="image-large">
-          <img src="images/Rectangle-2.webp" alt="Event Photo 1">
-        </div>
-        <div class="image-col">
-          <img src="images/Rectangle-1.webp" alt="Event Photo 2">
-          <img src="images/Rectangle-1.webp" alt="Event Photo 3">
-        </div>
+      <div class="about-content animate-on-scroll">
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">Bharat Electoral Literacy Fest</h2>
+        <p class="section-text">The Bharat Electoral Literacy Fest is a lively and instructive celebration of democracy's most basic tenet: informed and empowered citizens. This multi-day event brings together professionals, researchers, policymakers, and the general public to delve deep into the heart of political processes and civic involvement.</p>
       </div>
     </div>
   </section>
@@ -1086,37 +1288,40 @@
   <!-- Features Section -->
   <section class="features">
     <div class="features-container">
-      <h2 class="heading-4 animate-on-scroll">Insights to <span class="text-span-2">gain and give!</span></h2>
+      <div class="features-header animate-on-scroll">
+        <span class="section-label">Why Join Us</span>
+        <h2 class="section-title">Insights to <span style="color: var(--accent);">gain and give!</span></h2>
+      </div>
       <div class="features-grid">
         <div class="feature-card animate-on-scroll">
-          <img src="images/Group-91.webp" alt="Built for Novices">
-          <h3 class="tittle">Built for Novices</h3>
-          <p class="paragraph-small">Just starting out? No need to worry. Let's take the first step together.</p>
+          <img src="images/Group-91.webp" alt="Built for Novices" class="feature-icon">
+          <h3 class="feature-title">Built for Novices</h3>
+          <p class="feature-text">Just starting out? No need to worry. Let's take the first step together.</p>
         </div>
         <div class="feature-card animate-on-scroll">
-          <img src="images/Group-92.webp" alt="Create a network">
-          <h3 class="tittle">Create a network</h3>
-          <p class="paragraph-small">Pick up a new skill and learn or teach your skills to the peers</p>
+          <img src="images/Group-92.webp" alt="Create a network" class="feature-icon">
+          <h3 class="feature-title">Create a network</h3>
+          <p class="feature-text">Pick up a new skill and learn or teach your skills to the peers</p>
         </div>
         <div class="feature-card animate-on-scroll">
-          <img src="images/Group-93.webp" alt="Learn with the best">
-          <h3 class="tittle">Learn with the best</h3>
-          <p class="paragraph-small">Stuck on something? Discuss it with your peers virtually</p>
+          <img src="images/Group-93.webp" alt="Learn with the best" class="feature-icon">
+          <h3 class="feature-title">Learn with the best</h3>
+          <p class="feature-text">Stuck on something? Discuss it with your peers virtually</p>
         </div>
         <div class="feature-card animate-on-scroll">
-          <img src="images/Group-96.webp" alt="Discover your niche">
-          <h3 class="tittle">Discover your niche</h3>
-          <p class="paragraph-small">Learn what makes you tick and how you can use it for best benefit.</p>
+          <img src="images/Group-96.webp" alt="Discover your niche" class="feature-icon">
+          <h3 class="feature-title">Discover your niche</h3>
+          <p class="feature-text">Learn what makes you tick and how you can use it for best benefit.</p>
         </div>
         <div class="feature-card animate-on-scroll">
-          <img src="images/Group-94.webp" alt="Learn from experts">
-          <h3 class="tittle">Learn from a band of experts</h3>
-          <p class="paragraph-small">Get access to field experts, mentors and industry leaders</p>
+          <img src="images/Group-94.webp" alt="Learn from experts" class="feature-icon">
+          <h3 class="feature-title">Learn from a band of experts</h3>
+          <p class="feature-text">Get access to field experts, mentors and industry leaders</p>
         </div>
         <div class="feature-card animate-on-scroll">
-          <img src="images/Group-95.webp" alt="Explore new frontier">
-          <h3 class="tittle">Explore a new frontier</h3>
-          <p class="paragraph-small">Want to push the limits of what you can do? Gain the opportunity to become an expert.</p>
+          <img src="images/Group-95.webp" alt="Explore new frontier" class="feature-icon">
+          <h3 class="feature-title">Explore a new frontier</h3>
+          <p class="feature-text">Want to push the limits of what you can do? Gain the opportunity to become an expert.</p>
         </div>
       </div>
     </div>
@@ -1134,52 +1339,55 @@
   <!-- Projects Section -->
   <section class="projects">
     <div class="projects-container">
-      <h2 class="big-heading animate-on-scroll">Our <span class="text-span-3">Projects</span></h2>
+      <div class="projects-header animate-on-scroll">
+        <span class="section-label">Our Initiatives</span>
+        <h2 class="section-title">Our <span style="color: var(--accent);">Projects</span></h2>
+      </div>
       <div class="projects-grid">
         <div class="project-card animate-on-scroll">
-          <img src="images/image-2.webp" alt="Prakriti">
-          <h3 class="tittle-1">Prakriti</h3>
-          <p class="paragraph-small">Prakriti is our initiative dedicated to providing guidance and mentoring to visually challenged students aspiring to excel in the UPSC examinations.</p>
+          <img src="images/image-2.webp" alt="Prakriti" class="project-icon">
+          <h3 class="project-title">Prakriti</h3>
+          <p class="project-text">Prakriti is our initiative dedicated to providing guidance and mentoring to visually challenged students aspiring to excel in the UPSC examinations.</p>
         </div>
         <div class="project-card animate-on-scroll">
-          <img src="images/image-3.webp" alt="Transcendence Bharat">
-          <h3 class="tittle-1">Transcendence Bharat</h3>
-          <p class="paragraph-small">Transcendence Bharat is a flagship project that focuses on empowering individuals from the transgender community. Our goal is to foster inclusivity.</p>
+          <img src="images/image-3.webp" alt="Transcendence Bharat" class="project-icon">
+          <h3 class="project-title">Transcendence Bharat</h3>
+          <p class="project-text">Transcendence Bharat is a flagship project that focuses on empowering individuals from the transgender community. Our goal is to foster inclusivity.</p>
         </div>
         <div class="project-card animate-on-scroll">
-          <img src="images/image-8.webp" alt="Neetivarta">
-          <h3 class="tittle-1">Neetivarta</h3>
-          <p class="paragraph-small">NeetiVarta is our autonomous public policy research institute, dedicated to generating insights and solutions that inform sound policy decisions.</p>
+          <img src="images/image-8.webp" alt="Neetivarta" class="project-icon">
+          <h3 class="project-title">Neetivarta</h3>
+          <p class="project-text">NeetiVarta is our autonomous public policy research institute, dedicated to generating insights and solutions that inform sound policy decisions.</p>
         </div>
         <div class="project-card animate-on-scroll">
-          <img src="images/image-4.webp" alt="PrajaVaani">
-          <h3 class="tittle-1">PrajaVaani</h3>
-          <p class="paragraph-small">PrajaVaani is our platform for engaging in meaningful dialogues on a wide range of topics to inspire and inform, empowering individuals of wide range of opportunities and give a clarity to their vision and aspirations to make informed decisions.</p>
+          <img src="images/image-4.webp" alt="PrajaVaani" class="project-icon">
+          <h3 class="project-title">PrajaVaani</h3>
+          <p class="project-text">PrajaVaani is our platform for engaging in meaningful dialogues on a wide range of topics to inspire and inform, empowering individuals of wide range of opportunities.</p>
         </div>
         <div class="project-card animate-on-scroll">
-          <img src="images/image-5.webp" alt="Prajaudaan">
-          <h3 class="tittle-1">Prajaudaan</h3>
-          <p class="paragraph-small">PrajaUdaan stands out for its all-encompassing approach to training. To guarantee that students obtain a well-rounded education, the curriculum is created to include a variety of aerospace and drone technology-related topics.</p>
+          <img src="images/image-5.webp" alt="Prajaudaan" class="project-icon">
+          <h3 class="project-title">Prajaudaan</h3>
+          <p class="project-text">PrajaUdaan stands out for its all-encompassing approach to training in aerospace and drone technology-related topics.</p>
         </div>
         <div class="project-card animate-on-scroll">
-          <img src="images/image-9.webp" alt="Prajakalvi">
-          <h3 class="tittle-1">Prajakalvi</h3>
-          <p class="paragraph-small">A sincere effort to bring back the school dropouts into academics and personal development.</p>
+          <img src="images/image-9.webp" alt="Prajakalvi" class="project-icon">
+          <h3 class="project-title">Prajakalvi</h3>
+          <p class="project-text">A sincere effort to bring back the school dropouts into academics and personal development.</p>
         </div>
         <div class="project-card animate-on-scroll">
-          <img src="images/image-6.webp" alt="Prajabhasha">
-          <h3 class="tittle-1">Prajabhasha</h3>
-          <p class="paragraph-small">A modest endeavour to teach Sanskrit</p>
+          <img src="images/image-6.webp" alt="Prajabhasha" class="project-icon">
+          <h3 class="project-title">Prajabhasha</h3>
+          <p class="project-text">A modest endeavour to teach Sanskrit</p>
         </div>
         <div class="project-card animate-on-scroll">
-          <img src="images/image-7.webp" alt="Prajaguru">
-          <h3 class="tittle-1">Prajaguru</h3>
-          <p class="paragraph-small">A sincere effort to extend Soft Skill training to all</p>
+          <img src="images/image-7.webp" alt="Prajaguru" class="project-icon">
+          <h3 class="project-title">Prajaguru</h3>
+          <p class="project-text">A sincere effort to extend Soft Skill training to all</p>
         </div>
         <div class="project-card animate-on-scroll">
-          <img src="images/image-10.webp" alt="Prajakalam">
-          <h3 class="tittle-1">Prajakalam</h3>
-          <p class="paragraph-small">At PrajaKalam Guild, we believe that words have the power to shape minds, ignite hearts, and drive change. We are a vibrant and diverse community.</p>
+          <img src="images/image-10.webp" alt="Prajakalam" class="project-icon">
+          <h3 class="project-title">Prajakalam</h3>
+          <p class="project-text">At PrajaKalam Guild, we believe that words have the power to shape minds, ignite hearts, and drive change.</p>
         </div>
       </div>
     </div>
@@ -1188,50 +1396,53 @@
   <!-- Testimonials Section -->
   <section class="testimonials">
     <div class="testimonials-container">
-      <h2 class="heading-7 animate-on-scroll">Testimonials</h2>
-      <p class="paragraph-2 animate-on-scroll">Hear the interesting comments from our beloved people</p>
+      <div class="testimonials-header animate-on-scroll">
+        <span class="section-label" style="color: var(--accent);">Testimonials</span>
+        <h2 class="section-title">What People Say</h2>
+        <p class="section-text">Hear the interesting comments from our beloved people</p>
+      </div>
       <div class="testimonials-grid">
         <div class="testimonial-card animate-on-scroll">
           <div class="testimonial-quote-icon">"</div>
-          <p class="testimonial-quote">Krithika! She is like a Brahmos Missile</p>
-          <div class="testimonial-info">
-            <img src="images/mRXIugoc_400x400.jpg" alt="Col. Vasant Ballewar" class="testimonial-image">
+          <p class="testimonial-text">Krithika! She is like a Brahmos Missile</p>
+          <div class="testimonial-author">
+            <img src="images/mRXIugoc_400x400.jpg" alt="Col. Vasant Ballewar" class="testimonial-avatar">
             <div>
-              <div class="testimonial-author-name">Col. Vasant Ballewar TEER</div>
-              <div class="testimonial-author-role">Dean of Queen Mary's Technical Institute, Pune</div>
+              <div class="testimonial-name">Col. Vasant Ballewar TEER</div>
+              <div class="testimonial-role">Dean of Queen Mary's Technical Institute, Pune</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card animate-on-scroll">
           <div class="testimonial-quote-icon">"</div>
-          <p class="testimonial-quote">I like your personality, you should carry the baton forward of inspiring young minds to contribute towards nation building</p>
-          <div class="testimonial-info">
-            <img src="images/Anna_Hazare_Jantar_Mantar_cropped.jpg" alt="Anna Hazare" class="testimonial-image">
+          <p class="testimonial-text">I like your personality, you should carry the baton forward of inspiring young minds to contribute towards nation building</p>
+          <div class="testimonial-author">
+            <img src="images/Anna_Hazare_Jantar_Mantar_cropped.jpg" alt="Anna Hazare" class="testimonial-avatar">
             <div>
-              <div class="testimonial-author-name">Kisan Baburao "Anna" Hazare</div>
-              <div class="testimonial-author-role">Indian social activist</div>
+              <div class="testimonial-name">Kisan Baburao "Anna" Hazare</div>
+              <div class="testimonial-role">Indian social activist</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card animate-on-scroll">
           <div class="testimonial-quote-icon">"</div>
-          <p class="testimonial-quote">She is an illustrious lady with a profound intelligence and an asset to the nation</p>
-          <div class="testimonial-info">
-            <img src="images/290334281_469772205148058_3655302595611814527_n.jpg" alt="Dr. HV Hande" class="testimonial-image">
+          <p class="testimonial-text">She is an illustrious lady with a profound intelligence and an asset to the nation</p>
+          <div class="testimonial-author">
+            <img src="images/290334281_469772205148058_3655302595611814527_n.jpg" alt="Dr. HV Hande" class="testimonial-avatar">
             <div>
-              <div class="testimonial-author-name">Dr. HV Hande</div>
-              <div class="testimonial-author-role">Former Health Minister, Tamil Nadu</div>
+              <div class="testimonial-name">Dr. HV Hande</div>
+              <div class="testimonial-role">Former Health Minister, Tamil Nadu</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card animate-on-scroll">
           <div class="testimonial-quote-icon">"</div>
-          <p class="testimonial-quote">Krithika Ramasethu's talk on 'Why Vote?' offered a profound exploration into India's electoral process, on cre'active' platform is shedding light on the importance of civic engagement.</p>
-          <div class="testimonial-info">
-            <img src="images/WhatsApp-Image-2024-04-16-at-10.14.46.jpeg" alt="Supriya Nayaka" class="testimonial-image">
+          <p class="testimonial-text">Krithika Ramasethu's talk on 'Why Vote?' offered a profound exploration into India's electoral process, shedding light on the importance of civic engagement.</p>
+          <div class="testimonial-author">
+            <img src="images/WhatsApp-Image-2024-04-16-at-10.14.46.jpeg" alt="Supriya Nayaka" class="testimonial-avatar">
             <div>
-              <div class="testimonial-author-name">Supriya Nayaka MK</div>
-              <div class="testimonial-author-role">CEO, Cre'active' Gauribidanur</div>
+              <div class="testimonial-name">Supriya Nayaka MK</div>
+              <div class="testimonial-role">CEO, Cre'active' Gauribidanur</div>
             </div>
           </div>
         </div>
@@ -1240,13 +1451,16 @@
   </section>
 
   <!-- RCOY Section -->
-  <section class="rcoy-section">
-    <div class="rcoy-container animate-on-scroll">
-      <h2>International Consultation events for UNFCCC's RCOY APAC 2024</h2>
-      <div class="rcoy-video">
+  <section class="rcoy">
+    <div class="rcoy-container">
+      <div class="rcoy-header animate-on-scroll">
+        <span class="section-label">UNFCCC RCOY APAC 2024</span>
+        <h2 class="section-title">International Consultation Events</h2>
+      </div>
+      <div class="rcoy-video animate-on-scroll">
         <iframe src="https://www.youtube.com/embed/-thkyP6pA4U?rel=0" title="RCOY Tamilnadu Prajasetu Foundation" allowfullscreen></iframe>
       </div>
-      <p class="paragraph">India's first ever diverse, dynamic and inclusive consultation event, from cluster habitats to communities and academia including schools to universities along with an online campaign #aarambikalame a step towards sustainable development, Prajasetu Foundation is proud to amplify the voice of Tamil Nadu by being the first and the only implementation partner for RCOY APAC of UNFCCC</p>
+      <p class="rcoy-text animate-on-scroll">India's first ever diverse, dynamic and inclusive consultation event, from cluster habitats to communities and academia including schools to universities along with an online campaign #aarambikalame a step towards sustainable development, Prajasetu Foundation is proud to amplify the voice of Tamil Nadu by being the first and the only implementation partner for RCOY APAC of UNFCCC</p>
     </div>
   </section>
 
@@ -1254,30 +1468,30 @@
   <img src="images/Frame-2.webp" alt="" class="divider-image">
 
   <!-- Contact Section -->
-  <section class="contact-section" id="contact">
+  <section class="contact" id="contact">
     <div class="contact-container">
       <div class="contact-image animate-on-scroll">
         <img src="images/image-16_1.webp" alt="Contact Us">
       </div>
-      <div class="form-wrapper animate-on-scroll">
-        <h2 class="heading-5">Get in touch</h2>
-        <p class="text-block-2">Our friendly team would love to hear from you.</p>
+      <div class="contact-form-wrapper animate-on-scroll">
+        <h2 class="contact-title">Get in touch</h2>
+        <p class="contact-subtitle">Our friendly team would love to hear from you.</p>
         <form id="contact-form">
           <input type="hidden" name="access_key" value="b48018de-1088-41d0-b01b-927f0501ea93">
           <div class="form-group">
-            <label for="name">Full Name</label>
+            <label for="name" class="form-label">Full Name</label>
             <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required>
           </div>
           <div class="form-group">
-            <label for="email">Email Address</label>
+            <label for="email" class="form-label">Email Address</label>
             <input type="email" id="email" name="email" class="form-input" placeholder="example@mail.com" required>
           </div>
           <div class="form-group">
-            <label for="phone">Phone Number</label>
+            <label for="phone" class="form-label">Phone Number</label>
             <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 99999 99999" required>
           </div>
           <div class="form-group">
-            <label for="message">Message</label>
+            <label for="message" class="form-label">Message</label>
             <textarea id="message" name="message" class="form-textarea" placeholder="Leave us a message..." required></textarea>
           </div>
           <button type="submit" class="form-submit">Submit</button>
@@ -1293,6 +1507,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="images/logo-removebg-preview.png" alt="Prajasetu Logo">
+          <p class="footer-desc">Transforming lives with purpose through meaningful impact and purpose-driven initiatives.</p>
         </div>
         <div>
           <div class="footer-title">Company</div>
@@ -1337,11 +1552,7 @@
     // Navigation scroll effect
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+      nav.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     // Scroll animations
@@ -1351,7 +1562,7 @@
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
     document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
