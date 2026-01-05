@@ -401,10 +401,12 @@
       font-weight: 500;
     }
 
-    /* Partners Section */
+    /* Partners Section - REAL LOGOS LIKE ORIGINAL */
     .partners {
-      padding: 4.5rem 2rem;
-      background: var(--primary);
+      padding: 3.5rem 2rem;
+      background: var(--white);
+      border-top: 1px solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100);
     }
 
     .partners-container {
@@ -412,40 +414,46 @@
       margin: 0 auto;
     }
 
-    .partners-label {
-      text-align: center;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.45);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-bottom: 2rem;
-      font-weight: 600;
-    }
-
     .partners-grid {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 4.5rem;
+      gap: 3.5rem;
       flex-wrap: wrap;
     }
 
+    /* Real logo styling like original */
     .partners-image {
-      height: 75px;
-      width: auto;
+      height: auto;
       object-fit: contain;
-      opacity: 0.7;
       transition: all 0.3s ease;
-      filter: brightness(0) invert(1);
+      opacity: 0.85;
     }
 
     .partners-image:hover {
       opacity: 1;
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
 
-    .partners-image.larger {
-      height: 90px;
+    /* Individual logo sizes matching original */
+    .partners-image.iso-logo {
+      width: 148px;
+    }
+
+    .partners-image.darpan-logo {
+      width: 156px;
+    }
+
+    .partners-image.partner-logo-1 {
+      width: 112px;
+    }
+
+    .partners-image.partner-logo-2 {
+      width: 107px;
+    }
+
+    .partners-image.g80-logo {
+      width: 73px;
     }
 
     /* Divider */
@@ -1125,7 +1133,24 @@
       }
 
       .partners-grid {
-        gap: 3rem;
+        gap: 2.5rem;
+      }
+
+      .partners-image.iso-logo,
+      .partners-image.darpan-logo {
+        width: 120px;
+      }
+
+      .partners-image.partner-logo-1 {
+        width: 90px;
+      }
+
+      .partners-image.partner-logo-2 {
+        width: 85px;
+      }
+
+      .partners-image.g80-logo {
+        width: 60px;
       }
     }
 
@@ -1170,15 +1195,24 @@
       }
 
       .partners-grid {
-        gap: 2rem;
+        gap: 1.5rem;
       }
 
-      .partners-image {
-        height: 55px;
+      .partners-image.iso-logo,
+      .partners-image.darpan-logo {
+        width: 100px;
       }
 
-      .partners-image.larger {
-        height: 65px;
+      .partners-image.partner-logo-1 {
+        width: 75px;
+      }
+
+      .partners-image.partner-logo-2 {
+        width: 70px;
+      }
+
+      .partners-image.g80-logo {
+        width: 50px;
       }
 
       .about-badge {
@@ -1250,16 +1284,15 @@
     </div>
   </section>
 
-  <!-- Partners Section -->
+  <!-- Partners Section - REAL LOGOS LIKE ORIGINAL -->
   <section class="partners">
     <div class="partners-container">
-      <p class="partners-label">Recognized & Certified By</p>
       <div class="partners-grid">
-        <img src="images/iso-removebg-preview.png" alt="ISO Certified" class="partners-image larger">
-        <img src="images/Darpan-removebg-preview.png" alt="NGO Darpan" class="partners-image larger">
-        <img src="images/b32c18b244b31cce9eccac5fa7622a05-removebg-preview.png" alt="Partner Logo" class="partners-image">
-        <img src="images/Screenshot_2024-10-01_at_2.54.33_PM-removebg-preview.png" alt="Partner Logo" class="partners-image">
-        <img src="images/80g.webp" alt="80G Registered" class="partners-image">
+        <img src="images/iso-removebg-preview.png" alt="ISO Certified" class="partners-image iso-logo">
+        <img src="images/Darpan-removebg-preview.png" alt="NGO Darpan" class="partners-image darpan-logo">
+        <img src="images/b32c18b244b31cce9eccac5fa7622a05-removebg-preview.png" alt="Partner Logo" class="partners-image partner-logo-1">
+        <img src="images/Screenshot_2024-10-01_at_2.54.33_PM-removebg-preview.png" alt="Partner Logo" class="partners-image partner-logo-2">
+        <img src="images/80g.webp" alt="80G Registered" class="partners-image g80-logo">
       </div>
     </div>
   </section>
@@ -1267,7 +1300,7 @@
   <!-- Divider -->
   <img src="images/Frame-2.webp" alt="" class="divider-image">
 
-  <!-- About Section - ONLY ONE IMAGE -->
+  <!-- About Section -->
   <section class="about" id="about">
     <div class="about-wrapper">
       <div class="about-image-wrapper animate-on-scroll">
